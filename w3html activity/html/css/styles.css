@@ -1,4 +1,3 @@
-
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,7 +6,7 @@ body {
   color: #333;
 }
 
-
+/* HEADER */
 header {
   background-color: #161d2c;
   padding: 10px 20px;
@@ -15,8 +14,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
-
 
 .logo {
   font-size: 20px;
@@ -31,17 +30,16 @@ header {
   padding: 0;
 }
 
-
 .nav-icons li {
   cursor: pointer;
   position: relative;
 }
 
-
 .profile-pic {
-  width: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
-
 
 .badge {
   background: red;
@@ -54,20 +52,22 @@ header {
   right: -10px;
 }
 
-
+/* MAIN LAYOUT */
 main {
   display: flex;
   max-width: 1200px;
   margin: 20px auto;
   padding: 0 20px;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-
+/* SIDEBAR */
 .sidebar {
-  width: 25%;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
 }
-
 
 .profile-card {
   text-align: center;
@@ -93,7 +93,6 @@ main {
   cursor: pointer;
 }
 
-
 .interests {
   background: white;
   padding: 15px;
@@ -110,9 +109,11 @@ main {
   font-size: 14px;
 }
 
-
+/* CONTENT AREA */
 .content {
-  width: 50%;
+  flex: 2;
+  min-width: 300px;
+  max-width: 600px;
 }
 
 .post {
@@ -131,6 +132,7 @@ main {
 
 .post-header img {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -138,10 +140,12 @@ main {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .post-images img {
-  width: 48%;
+  width: 100%;
+  max-width: 48%;
   border-radius: 5px;
 }
 
@@ -160,9 +164,11 @@ main {
   border-radius: 5px;
 }
 
-
+/* RIGHT SIDEBAR */
 .right-sidebar {
-  width: 25%;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
 }
 
 .widget, .friend-request, .ads {
@@ -181,6 +187,7 @@ main {
 
 .friend-card img {
   width: 40px;
+  height: 40px;
   border-radius: 50%;
 }
 
@@ -193,7 +200,7 @@ main {
   border-radius: 5px;
 }
 
-/* Footer Styles */
+/* FOOTER */
 footer {
   background-color: #161d2c;
   color: white;
@@ -245,4 +252,68 @@ footer {
   border-top: 1px solid #444;
   padding-top: 10px;
   font-size: 14px;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 1024px) {
+  main {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar, .right-sidebar {
+    width: 90%;
+    max-width: 600px;
+  }
+
+  .content {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  .post-images img {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .nav-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .profile-pic {
+    width: 35px;
+    height: 35px;
+  }
+
+  .sidebar, .right-sidebar {
+    display: none;
+  }
+
+  .content {
+    width: 95%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .post-images {
+    flex-direction: column;
+  }
+
+  .post-images img {
+    max-width: 100%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
 }
