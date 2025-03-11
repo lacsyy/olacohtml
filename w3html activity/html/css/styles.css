@@ -56,17 +56,45 @@ header {
 main {
   display: flex;
   max-width: 1200px;
-  margin: 20px auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 20px;
+  height: 100vh; 
+  overflow: hidden; 
   gap: 20px;
-  flex-wrap: wrap;
 }
 
-/* SIDEBAR */
-.sidebar {
+.sidebar, .right-sidebar {
   flex: 1;
-  min-width: 250px;
-  max-width: 300px;
+  max-width: 250px;
+  height: calc(100vh - 40px); 
+  position: sticky;
+  top: 0;
+  overflow: hidden; 
+}
+
+/* Make only the post section scrollable */
+.content {
+  flex: 2;
+  max-width: 600px;
+  overflow-y: auto; 
+  padding-right: 10px; 
+  height: calc(100vh - 40px); 
+  scrollbar-width: thin;
+  scrollbar-color: #3b5998 #ccc;
+}
+
+/* Custom Scrollbar for Chrome */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-track {
+  background: #ccc;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: #3b5998;
+  border-radius: 4px;
 }
 
 .profile-card {
@@ -93,23 +121,100 @@ main {
   cursor: pointer;
 }
 
+/* INTERESTS SECTION */
 .interests {
   background: white;
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 .interests span {
   display: inline-block;
   background: #ccc;
   padding: 5px 10px;
-  margin: 5px;
+  margin: 5px 3px;
   border-radius: 5px;
   font-size: 14px;
+  white-space: nowrap; 
 }
 
-/* CONTENT AREA */
+
+.ads {
+  background: white;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.ad-card {
+  width: 100%; 
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.ad-card img {
+  width: 100%; 
+  height: auto;
+  border-radius: 5px;
+}
+
+.ad-card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.ad-card p {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+}
+
+/* AD CARD */
+.ad-card {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.ad-card .btn {
+  width: 100%;
+  background: #3b5998;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  box-sizing: border-box;
+  order: -1; 
+  margin-bottom: 10px;
+}
+
+.ad-card .btn:hover {
+  background: #2a4077;
+}
+
+
 .content {
   flex: 2;
   min-width: 300px;
